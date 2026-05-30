@@ -233,6 +233,14 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       background: linear-gradient(180deg, rgba(255, 248, 244, 0.08), rgba(255, 248, 244, 0.03));
+      text-decoration: none;
+      transition: border-color 180ms ease, transform 180ms ease;
+    }
+
+    .post-card:hover,
+    .post-card:focus-visible {
+      border-color: rgba(230, 182, 110, 0.72);
+      transform: translateY(-3px);
     }
 
     .post-card:nth-child(2) {
@@ -374,29 +382,29 @@
         </div>
 
         <div class="post-grid">
-          <article class="post-card">
+          <a class="post-card" href="posts/the-rain-on-the-window.html">
             <div>
               <h3>The Rain on the Window</h3>
               <p>She sends one last message while the city blurs behind the glass, turning a quiet evening into a charged conversation full of restraint and longing.</p>
             </div>
             <div class="meta">Slow burn - 6 min</div>
-          </article>
+          </a>
 
-          <article class="post-card">
+          <a class="post-card" href="posts/after-the-dinner-reservation.html">
             <div>
               <h3>After the Dinner Reservation</h3>
               <p>A missed table, a private elevator, and a laugh that changes the night. The scene stays elegant while the chemistry gets warmer with every line.</p>
             </div>
             <div class="meta">Steamy mood - 8 min</div>
-          </article>
+          </a>
 
-          <article class="post-card">
+          <a class="post-card" href="posts/the-voice-note-at-1-17.html">
             <div>
               <h3>The Voice Note at 1:17</h3>
               <p>What begins as a playful audio message becomes a confession about touch, trust, and the thrill of being remembered exactly.</p>
             </div>
             <div class="meta">Intimate chat - 5 min</div>
-          </article>
+          </a>
         </div>
       </div>
     </section>
