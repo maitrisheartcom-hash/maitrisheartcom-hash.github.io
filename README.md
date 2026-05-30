@@ -1,6 +1,6 @@
 # maitrisheartcom-hash.github.io
 
-GitHub Pages static landing blog for romantic AI companion story content.
+Romantic AI companion story landing blog.
 
 Public URL:
 
