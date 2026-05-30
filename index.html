@@ -3,101 +3,415 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A Practical Note on Trust in AI Companion Conversations</title>
-  <meta name="description" content="A short no-link verification article about clear expectations, privacy, and trust in AI companion conversations.">
+  <title>Velvet Stories | Romantic AI Companion Blog</title>
+  <meta name="description" content="A modern romantic fiction blog about intimate AI companion stories, slow-burn chemistry, and tasteful steamy scenes.">
   <style>
     :root {
-      color-scheme: light;
-      --ink: #202124;
-      --muted: #5f6368;
-      --paper: #fafafa;
-      --line: #d8dee4;
-      --accent: #0f766e;
+      color-scheme: dark;
+      --ink: #fff8f4;
+      --muted: #d8c7bf;
+      --paper: #151111;
+      --panel: #211716;
+      --line: rgba(255, 248, 244, 0.18);
+      --rose: #d4506a;
+      --gold: #e6b66e;
+      --teal: #7ad7ce;
+      --shadow: rgba(0, 0, 0, 0.45);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
       background: var(--paper);
+      line-height: 1.6;
     }
 
-    main {
-      width: min(760px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 56px 0 72px;
+    a {
+      color: inherit;
     }
 
-    header {
+    .hero {
+      min-height: min(82svh, 760px);
+      display: grid;
+      align-items: end;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       border-bottom: 1px solid var(--line);
-      margin-bottom: 32px;
-      padding-bottom: 24px;
     }
 
-    .label {
-      margin: 0 0 12px;
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(16, 10, 11, 0.9) 0%, rgba(16, 10, 11, 0.66) 42%, rgba(16, 10, 11, 0.2) 100%),
+        url("assets/romance-hero-github.png") center / cover no-repeat;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 34%;
+      background: linear-gradient(0deg, var(--paper), rgba(21, 17, 17, 0));
+      z-index: -1;
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .hero-inner,
+    .section-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      padding: 120px 0 74px;
+    }
+
+    .kicker {
+      margin: 0 0 14px;
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 800;
       text-transform: uppercase;
     }
 
     h1 {
+      max-width: 790px;
       margin: 0;
-      font-size: clamp(2rem, 5vw, 3.3rem);
-      line-height: 1.1;
+      font-size: clamp(2.55rem, 8vw, 6.8rem);
+      line-height: 0.95;
       letter-spacing: 0;
     }
 
-    .date {
-      margin: 16px 0 0;
+    .lead {
+      max-width: 650px;
+      margin: 24px 0 0;
       color: var(--muted);
+      font-size: clamp(1.04rem, 2vw, 1.24rem);
     }
 
-    article {
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 248, 244, 0.24);
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 18px 50px var(--shadow);
+    }
+
+    .button.primary {
+      color: #1f1113;
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .button.secondary {
+      color: var(--ink);
+      background: rgba(255, 248, 244, 0.1);
+      backdrop-filter: blur(18px);
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .intro {
+      background: #1a1312;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .intro-copy {
+      color: var(--muted);
       font-size: 1.08rem;
     }
 
-    p {
-      margin: 0 0 1.2em;
+    .intro-copy p {
+      margin: 0 0 18px;
+    }
+
+    .highlight-link {
+      color: var(--gold);
+      font-weight: 800;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .posts {
+      background: #120f10;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-head p {
+      max-width: 440px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .post-card {
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255, 248, 244, 0.08), rgba(255, 248, 244, 0.03));
+    }
+
+    .post-card:nth-child(2) {
+      background: linear-gradient(180deg, rgba(212, 80, 106, 0.18), rgba(255, 248, 244, 0.03));
+    }
+
+    .post-card:nth-child(3) {
+      background: linear-gradient(180deg, rgba(122, 215, 206, 0.12), rgba(255, 248, 244, 0.03));
+    }
+
+    .post-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      line-height: 1.18;
+    }
+
+    .post-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .meta {
+      margin-top: 30px;
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .feature {
+      background: #211716;
+    }
+
+    .feature-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+      gap: 36px;
+      align-items: center;
+    }
+
+    .quote {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.7rem, 4vw, 3.7rem);
+      line-height: 1.05;
+    }
+
+    .feature-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
 
     footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
+      padding: 30px 0;
       color: var(--muted);
-      font-size: 0.95rem;
+      background: #0d0b0b;
+      border-top: 1px solid var(--line);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        min-height: 86svh;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(0deg, rgba(16, 10, 11, 0.92) 0%, rgba(16, 10, 11, 0.58) 58%, rgba(16, 10, 11, 0.1) 100%),
+          url("assets/romance-hero-github.png") 58% center / cover no-repeat;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .intro-grid,
+      .feature-layout,
+      .post-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 14px;
+      }
+
+      section {
+        padding: 54px 0;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="hero">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="brand">Velvet Stories</div>
+      <div class="nav-links">
+        <a href="#blog">Blog</a>
+        <a href="#mood">Mood</a>
+        <a href="https://aigirlfriend.media/">Companion</a>
+      </div>
+    </nav>
+
+    <div class="hero-inner">
+      <p class="kicker">Romantic fiction for intimate AI-era nights</p>
+      <h1>Velvet Stories</h1>
+      <p class="lead">Slow-burn romance, private confessions, and tasteful hot scenes written for readers who like tension, chemistry, and elegant emotional detail.</p>
+      <div class="cta-row">
+        <a class="button primary" href="#blog">Read the latest</a>
+        <a class="button secondary" href="https://aigirlfriend.media/">adult ai girlfriend</a>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <header>
-      <p class="label">Mekely Geanna Notes</p>
-      <h1>A Practical Note on Trust in AI Companion Conversations</h1>
-      <p class="date">Published May 24, 2026</p>
-    </header>
+    <section class="intro" id="mood">
+      <div class="section-inner intro-grid">
+        <h2>Stories built around desire, not noise.</h2>
+        <div class="intro-copy">
+          <p>Each article reads like a private chapter: a first message after midnight, a hotel-room pause before the truth comes out, a voice that knows when to tease and when to slow down.</p>
+          <p>The blog keeps the heat suggestive and polished, with adult romantic scenes that focus on anticipation, consent, and the emotional charge between two people.</p>
+          <p>For readers exploring interactive romance, start with a companion experience designed around mood, memory, and intimate conversation.</p>
+        </div>
+      </div>
+    </section>
 
-    <article>
-      <p>AI companion products are easier to evaluate when they describe their purpose in plain language. People should understand what the system can do, what it cannot do, and where ordinary human judgment still matters.</p>
+    <section class="posts" id="blog">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Latest Blog Notes</h2>
+          <p>Short romantic story concepts for landing pages, companion profiles, and atmospheric AI girlfriend content.</p>
+        </div>
 
-      <p>A responsible conversation experience does not need exaggerated claims. It can be useful as a low-pressure place for reflection, creative prompts, language practice, or everyday conversation while keeping expectations realistic.</p>
+        <div class="post-grid">
+          <article class="post-card">
+            <div>
+              <h3>The Rain on the Window</h3>
+              <p>She sends one last message while the city blurs behind the glass, turning a quiet evening into a charged conversation full of restraint and longing.</p>
+            </div>
+            <div class="meta">Slow burn - 6 min</div>
+          </article>
 
-      <p>Privacy is part of that trust. Clear settings, understandable data controls, and careful onboarding help users decide how much personal context they want to share. A product that explains these details calmly usually feels more reliable than one that hides them behind vague wording.</p>
+          <article class="post-card">
+            <div>
+              <h3>After the Dinner Reservation</h3>
+              <p>A missed table, a private elevator, and a laugh that changes the night. The scene stays elegant while the chemistry gets warmer with every line.</p>
+            </div>
+            <div class="meta">Steamy mood - 8 min</div>
+          </article>
 
-      <p>The healthiest approach is simple: set clear boundaries, avoid pretending that software replaces real relationships, and make the experience steady enough that users can explore it without confusion. Good design in this category is measured not only by fluent replies, but also by honesty, restraint, and respect for the person using it.</p>
-    </article>
+          <article class="post-card">
+            <div>
+              <h3>The Voice Note at 1:17</h3>
+              <p>What begins as a playful audio message becomes a confession about touch, trust, and the thrill of being remembered exactly.</p>
+            </div>
+            <div class="meta">Intimate chat - 5 min</div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-      This page is a no-link publication test for a simple GitHub Pages site.
-    </footer>
+    <section class="feature">
+      <div class="section-inner feature-layout">
+        <p class="quote">The hottest scenes work because the pause before them matters.</p>
+        <p class="feature-note">Velvet Stories is a static GitHub Pages blog page for romantic AI companion content. It publishes from its own repository and stays separate from the Cloudflare Pages version.</p>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="section-inner">Published May 30, 2026 - GitHub Pages romantic landing blog</div>
+  </footer>
 </body>
 </html>

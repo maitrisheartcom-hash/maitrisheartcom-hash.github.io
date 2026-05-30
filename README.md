@@ -1,2 +1,7 @@
 # maitrisheartcom-hash.github.io
-Simple notes page for AI companion product reflections.
+
+GitHub Pages static landing blog for romantic AI companion story content.
+
+Public URL:
+
+https://maitrisheartcom-hash.github.io/
